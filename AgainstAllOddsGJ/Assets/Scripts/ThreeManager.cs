@@ -7,6 +7,7 @@ public class ThreeManager : MonoBehaviour
     public static ThreeManager instance;
     int totalDestoyedOdds = 0;
     public GameObject even;
+    Vector3 oldOdd;
 
     void Awake()
     {
@@ -19,7 +20,9 @@ public class ThreeManager : MonoBehaviour
 
         if (totalDestoyedOdds % 2 == 0)
         {
-            Instantiate(even, lastPosition, Quaternion.identity);
+            Instantiate(even, oldOdd, Quaternion.identity);
         }
+
+        oldOdd = lastPosition;
     }
 }
